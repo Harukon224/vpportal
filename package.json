@@ -1,0 +1,19 @@
+{
+  "devDependencies": {
+    "@mdi/js": "^7.4.47",
+    "@types/luxon": "^3.7.1",
+    "vitepress": "^2.0.0-alpha.15",
+    "vitepress-sidebar": "^1.33.0"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.17",
+    "luxon": "^3.7.2",
+    "tailwindcss": "^4.1.17",
+    "vuetify": "^3.11.0"
+  }
+}
