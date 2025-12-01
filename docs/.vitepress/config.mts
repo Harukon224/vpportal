@@ -27,6 +27,7 @@ const vitePressOptions: UserConfig<NoInfer<DefaultTheme.Config>> = {
 
 const vitePressSidebarOptions: VitePressSidebarOptions = {
   documentRootPath: '/docs',
+  useFolderLinkFromIndexFile: true,
   collapsed: false
 }
 
