@@ -1,27 +1,51 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import DefaultTheme from 'vitepress/theme'
-import { useData } from 'vitepress';
+import DefaultTheme from 'vitepress/theme';
+import { useData, useRoute } from 'vitepress';
 import { DateTime } from 'luxon';
 import { mdiChevronRight, mdiFileDocumentPlusOutline, mdiFileDocumentRefreshOutline } from '@mdi/js';
 
-const { Layout } = DefaultTheme
-const { frontmatter, page } = useData();
+const { Layout } = DefaultTheme;
+const { frontmatter, site } = useData();
+const route = useRoute();
+
+const base = site.value.base || '/';
+
+const pageFiles = import.meta.glob('/**/*.md');
+const allPathsNoExt = new Set(
+  Object.keys(pageFiles).map(p => p.replace(/\.md$/, ''))
+);
+
+const segments = computed(() => {
+  const path = route.data.filePath;
+  return path.replace(/\.md$/, '').split('/');
+});
 
 const breadcrumbs = computed(() => {
-const parts = page.value.relativePath
-    .replace(/\.md$/, '')
-    .split('/');
+  let acc = '';
+  const items: { title: string; href?: string }[] = [];
 
-  // 最後の要素が "index" のときは削る
-  if (parts[parts.length - 1] === 'index') {
-    parts.pop();
-  }
+  segments.value.forEach((seg, i) => {
+    acc = acc ? `${acc}/${seg}` : seg;
+    const indexPath = `/${acc}/index`;
+    const hasIndex = allPathsNoExt.has(indexPath);
 
-  return [
-    { title: 'Home' },
-    ...parts.map(p => ({ title: p }))
-  ];
+    const isLast = i === segments.value.length - 1;
+    const isIndexPage = route.data.filePath.endsWith('index.md');
+    if (isLast && isIndexPage) return;
+
+    items.push({
+      title: seg,
+      href: hasIndex ? `${base}${acc}/` : undefined
+    });
+  });
+
+  items.unshift({
+    title: 'Home',
+    href: base
+  });
+
+  return items;
 });
 
 function formatDate(isoDate: string) {
@@ -38,9 +62,7 @@ function formatDate(isoDate: string) {
           density="compact"
         >
           <template #divider>
-            <v-icon
-              :icon="mdiChevronRight"
-            ></v-icon>
+            <v-icon :icon="mdiChevronRight"></v-icon>
           </template>
         </v-breadcrumbs>
         <h1>{{ frontmatter.title }}</h1>
