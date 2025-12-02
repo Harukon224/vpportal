@@ -10,4 +10,7 @@ hero:
     - theme: alt
       text: Blog
       link: /blog
+    - theme: alt
+      text: Snippets
+      link: /snippets
 ---

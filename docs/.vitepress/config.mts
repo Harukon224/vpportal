@@ -12,8 +12,11 @@ const vitePressOptions: UserConfig<NoInfer<DefaultTheme.Config>> = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Blog', link: '/blog' },
-      { text: 'Snippets', link: 'https://harukon224.github.io/SnippetsPortal/' }
+      { text: 'Snippets', link: 'snippets' }
     ]
+  },
+  markdown: {
+    lineNumbers: true
   },
   vite: {
     plugins: [
@@ -27,6 +30,8 @@ const vitePressOptions: UserConfig<NoInfer<DefaultTheme.Config>> = {
 
 const vitePressSidebarOptions: VitePressSidebarOptions = {
   documentRootPath: '/docs',
+  useFolderTitleFromIndexFile: true,
+  useTitleFromFrontmatter: true,
   useFolderLinkFromIndexFile: true,
   collapsed: false
 }
