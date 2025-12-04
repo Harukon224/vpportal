@@ -13,4 +13,7 @@ hero:
     - theme: alt
       text: Snippets
       link: /snippets
+    - theme: alt
+      text: Note
+      link: /note
 ---

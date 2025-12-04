@@ -12,7 +12,8 @@ const vitePressOptions: UserConfig<NoInfer<DefaultTheme.Config>> = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Blog', link: '/blog' },
-      { text: 'Snippets', link: 'snippets' }
+      { text: 'Snippets', link: '/snippets' },
+      { text: 'Note', link: '/note' }
     ]
   },
   markdown: {
