@@ -13,7 +13,11 @@ const vitePressOptions: UserConfig<NoInfer<DefaultTheme.Config>> = {
       { text: 'Home', link: '/' },
       { text: 'Blog', link: '/blog' },
       { text: 'Snippets', link: '/snippets' },
-      { text: 'Note', link: '/note' }
+      { text: 'Note', link: '/note' },
+      { text: 'Other', items: [
+        { text: 'About', link: '/other/About' },
+        { text: 'DevPlan', link: '/other/DevPlan' }
+      ]}
     ]
   },
   markdown: {
