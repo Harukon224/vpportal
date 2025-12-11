@@ -1,0 +1,1 @@
+<CheckBox IsChecked="{Binding Topmost, RelativeSource={RelativeSource AncestorType=Window}, Mode=TwoWay}"/>
