@@ -60,6 +60,7 @@ function formatDate(isoDate: string) {
         <v-breadcrumbs
           :items="breadcrumbs"
           density="compact"
+          style="flex-wrap: wrap;"
         >
           <template #divider>
             <v-icon :icon="mdiChevronRight"></v-icon>
