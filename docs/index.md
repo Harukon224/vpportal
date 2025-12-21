@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "はるこんポータル"
+  name: "HKポータル"
   text: "A VitePress Site"
   tagline: My great project tagline
   actions:

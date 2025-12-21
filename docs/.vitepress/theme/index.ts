@@ -1,11 +1,11 @@
-import DefaultTheme from 'vitepress/theme'
-import './style.css'
-import 'vuetify/styles'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
-import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
-import { createVuetify } from 'vuetify'
-import Layout from './Layout.vue'
+import DefaultTheme from 'vitepress/theme';
+import './style.css';
+import 'vuetify/styles';
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
+import { aliases, mdi } from 'vuetify/iconsets/mdi-svg';
+import { createVuetify } from 'vuetify';
+import Layout from './Layout.vue';
 
 const vuetify = createVuetify({ 
   components, 
@@ -25,4 +25,4 @@ export default {
   enhanceApp({ app }) {
     app.use(vuetify)
   },
-}
+};

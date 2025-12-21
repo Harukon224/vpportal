@@ -6,8 +6,19 @@ import { DateTime } from 'luxon';
 import { mdiChevronRight, mdiFileDocumentPlusOutline, mdiFileDocumentRefreshOutline } from '@mdi/js';
 
 const { Layout } = DefaultTheme;
-const { frontmatter, site } = useData();
+const { frontmatter, page, site } = useData();
 const route = useRoute();
+
+const title = computed(() => {
+  if (frontmatter.value.title) {
+    return frontmatter.value.title;
+  } else {
+    return page.value.relativePath
+      ?.split('/')
+      .pop()
+      ?.replace(/\.md$/, '');
+  }
+});
 
 const base = site.value.base || '/';
 
@@ -66,7 +77,7 @@ function formatDate(isoDate: string) {
             <v-icon :icon="mdiChevronRight"></v-icon>
           </template>
         </v-breadcrumbs>
-        <h1>{{ frontmatter.title }}</h1>
+        <h1>{{ title }}</h1>
         <div
           v-if="frontmatter.createdDate"
           class="flex

@@ -1,10 +1,10 @@
-import tailwindcss from '@tailwindcss/vite'
-import { defineConfig, UserConfig, DefaultTheme } from 'vitepress'
+import tailwindcss from '@tailwindcss/vite';
+import { defineConfig, UserConfig, DefaultTheme } from 'vitepress';
 import { withSidebar } from 'vitepress-sidebar';
 import { VitePressSidebarOptions } from 'vitepress-sidebar/types';
 
 const vitePressOptions: UserConfig<NoInfer<DefaultTheme.Config>> = {
-  title: "はるこんポータル",
+  title: "HKポータル",
   base: '/vpportal/',
   description: "A VitePress Site",
   themeConfig: {
@@ -15,7 +15,7 @@ const vitePressOptions: UserConfig<NoInfer<DefaultTheme.Config>> = {
       { text: 'Snippets', link: '/snippets' },
       { text: 'Note', link: '/note' },
       { text: 'Other', items: [
-        { text: 'About', link: '/other/About' },
+        { text: 'Profile', link: '/other/Profile' },
         { text: 'DevPlan', link: '/other/DevPlan' }
       ]}
     ]
@@ -40,7 +40,7 @@ const vitePressSidebarOptions: VitePressSidebarOptions = {
   useFolderLinkFromIndexFile: true,
   collapsed: false,
   sortMenusByFrontmatterOrder: true
-}
+};
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig(withSidebar(vitePressOptions, vitePressSidebarOptions))
+export default defineConfig(withSidebar(vitePressOptions, vitePressSidebarOptions));
